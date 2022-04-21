@@ -6,7 +6,7 @@ package vm.caatsoft.gatitude.domain.model
  * Criado em 20/04/2022
  */
 
-data class Category (
+data class Category(
     val id: Int = 0,
     val name: String = ""
 )

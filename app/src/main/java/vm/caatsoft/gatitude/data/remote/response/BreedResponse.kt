@@ -8,9 +8,10 @@ import com.google.gson.annotations.SerializedName
  * Criado em 20/04/2022
  */
 
-data class BreedResponse (
-    @SerializedName("id") val id:String = "",
-    @SerializedName("name") val name:String = "",
-    @SerializedName("lifespan") val lifespan:String = "",
-    @SerializedName("origin") val origin:String = "",
-    @SerializedName("wikipediaUrl") val wikipediaUrl:String = "")
+data class BreedResponse(
+    @SerializedName("id") val id: String = "",
+    @SerializedName("name") val name: String = "",
+    @SerializedName("lifespan") val lifespan: String = "",
+    @SerializedName("origin") val origin: String = "",
+    @SerializedName("wikipediaUrl") val wikipediaUrl: String = ""
+)

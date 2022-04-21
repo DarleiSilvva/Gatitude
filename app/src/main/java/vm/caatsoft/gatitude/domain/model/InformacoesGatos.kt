@@ -6,9 +6,9 @@ package vm.caatsoft.gatitude.domain.model
  * Criado em 20/04/2022
  */
 
-data class InformacoesGatos (
-    val id:String = "",
-    val url:String = "",
+data class InformacoesGatos(
+    val id: String = "",
+    val url: String = "",
     val category: List<Category>? = null,
     val breed: List<Breed>? = null
 )

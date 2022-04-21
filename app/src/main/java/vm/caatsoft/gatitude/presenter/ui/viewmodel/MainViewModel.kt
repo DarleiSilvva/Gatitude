@@ -19,9 +19,9 @@ class MainViewModel(var caRepository: CatRepository) : ViewModel() {
     private val _isErro = MutableLiveData(VAZIO)
     val isErro: LiveData<String> = _isErro
 
-    fun obterImagensRandomicasDosGatos():MutableLiveData<List<InformacoesGatos>> {
+    fun obterImagensRandomicasDosGatos(): MutableLiveData<List<InformacoesGatos>> {
         try {
-            mInformacoesGatos =  caRepository.obterInformacoesDeGatos(QUANTIDADE_DE_CARDS, TIPO)
+            mInformacoesGatos = caRepository.obterInformacoesDeGatos(QUANTIDADE_DE_CARDS, TIPO)
         } catch (e: Exception) {
             e.printStackTrace()
             _isErro.value = e.toString()

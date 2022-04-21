@@ -14,7 +14,8 @@ import vm.caatsoft.gatitude.data.remote.response.InformacoesGatosResponse
 interface CatApi {
 
     @GET("/v1/images/search")
-    fun obterImagensRandomicas(@Query("limit") quantidade: Int,
-                               @Query("mime_types") tipo: String
+    fun obterImagensRandomicas(
+        @Query("limit") quantidade: Int,
+        @Query("mime_types") tipo: String
     ): Observable<List<InformacoesGatosResponse>>
 }

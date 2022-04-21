@@ -5,8 +5,8 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import vm.caatsoft.gatitude.data.remote.api.CatApi
 import vm.caatsoft.gatitude.data.CatDataRepository
+import vm.caatsoft.gatitude.data.remote.api.CatApi
 import vm.caatsoft.gatitude.domain.CatRepository
 
 /**

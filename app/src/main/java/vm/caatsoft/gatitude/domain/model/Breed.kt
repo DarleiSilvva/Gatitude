@@ -6,7 +6,7 @@ package vm.caatsoft.gatitude.domain.model
  * Criado em 20/04/2022
  */
 
-data class Breed (
+data class Breed(
     val id: String = "",
     val name: String = "",
     val lifespan: String = "",

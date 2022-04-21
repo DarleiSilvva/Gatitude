@@ -28,7 +28,7 @@ fun InformacoesGatos.toResponse() = InformacoesGatosResponse(
     breed = breed?.let { conversorListaBreedResponse(it) },
 )
 
-fun conversorListaCategoryResponse (listCategory: List<Category>):List<CategoryResponse>{
+fun conversorListaCategoryResponse(listCategory: List<Category>): List<CategoryResponse> {
     lateinit var lista: MutableList<CategoryResponse>
     listCategory.forEach {
         lista.add(it.toResponse())
@@ -36,7 +36,7 @@ fun conversorListaCategoryResponse (listCategory: List<Category>):List<CategoryR
     return lista.toList()
 }
 
-fun conversorListaCategory (listCategory: List<CategoryResponse>):List<Category>{
+fun conversorListaCategory(listCategory: List<CategoryResponse>): List<Category> {
     lateinit var lista: MutableList<Category>
     listCategory.forEach {
         lista.add(it.toModel())
@@ -44,7 +44,7 @@ fun conversorListaCategory (listCategory: List<CategoryResponse>):List<Category>
     return lista.toList()
 }
 
-fun conversorListaBreedResponse (listBreed: List<Breed>):List<BreedResponse>{
+fun conversorListaBreedResponse(listBreed: List<Breed>): List<BreedResponse> {
     lateinit var lista: MutableList<BreedResponse>
     listBreed.forEach {
         lista.add(it.toResponse())
@@ -52,7 +52,7 @@ fun conversorListaBreedResponse (listBreed: List<Breed>):List<BreedResponse>{
     return lista.toList()
 }
 
-fun conversorListaBreed (listBreed: List<BreedResponse>):List<Breed>{
+fun conversorListaBreed(listBreed: List<BreedResponse>): List<Breed> {
     lateinit var lista: MutableList<Breed>
     listBreed.forEach {
         lista.add(it.toModel())

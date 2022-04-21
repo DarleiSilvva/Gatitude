@@ -14,12 +14,12 @@ import vm.caatsoft.gatitude.presenter.di.viewModelModule
  */
 
 class App : Application() {
-  override fun onCreate() {
-    super.onCreate()
-    startKoin {
-      androidLogger()
-      androidContext(this@App)
-      modules(listOf(networkModule, viewModelModule))
+    override fun onCreate() {
+        super.onCreate()
+        startKoin {
+            androidLogger()
+            androidContext(this@App)
+            modules(listOf(networkModule, viewModelModule))
+        }
     }
-  }
 }

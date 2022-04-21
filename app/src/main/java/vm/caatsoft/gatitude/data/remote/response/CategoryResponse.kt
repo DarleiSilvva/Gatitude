@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
  * Criado em 20/04/2022
  */
 
-data class CategoryResponse (
-    @SerializedName("id") val id:Int = 0,
-    @SerializedName("name") var name:String = ""
+data class CategoryResponse(
+    @SerializedName("id") val id: Int = 0,
+    @SerializedName("name") var name: String = ""
 )
