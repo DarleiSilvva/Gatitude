@@ -17,11 +17,14 @@ import vm.caatsoft.gatitude.domain.model.InformacoesGatos
 
 class CatDataRepository(
     private val catApi: CatApi
-    ): CatRepository {
+) : CatRepository {
 
     val listInformacoesGatos: MutableLiveData<List<InformacoesGatos>> = MutableLiveData()
 
-    override fun obterInformacoesDeGatos(quantidade: Int, tipo:String): MutableLiveData<List<InformacoesGatos>> {
+    override fun obterInformacoesDeGatos(
+        quantidade: Int,
+        tipo: String
+    ): MutableLiveData<List<InformacoesGatos>> {
 
         val resultados: MutableList<InformacoesGatos> = ArrayList()
 

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), NaIteracaoComListaDeInformacoesDeGatos
         viewModel.isLoading.observe(this,
             { isLoading ->
                 isLoading?.let {
-                    if (it){
+                    if (it) {
                         binding.semConexaoConstraint.visibility = View.GONE
                         binding.loadingImageView.visibility = View.VISIBLE
                     } else {
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), NaIteracaoComListaDeInformacoesDeGatos
         viewModel.isErro.observe(this,
             { isErro ->
                 isErro?.let {
-                    if (it != VAZIO){
+                    if (it != VAZIO) {
                         Log.e("ErroNaRequisicao", it)
                         binding.loadingImageView.visibility = View.GONE
                         binding.semConexaoConstraint.visibility = View.VISIBLE

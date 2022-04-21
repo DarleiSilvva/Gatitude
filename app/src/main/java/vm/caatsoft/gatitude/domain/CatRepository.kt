@@ -11,5 +11,8 @@ import vm.caatsoft.gatitude.domain.model.InformacoesGatos
 
 interface CatRepository {
 
-    fun obterInformacoesDeGatos(quantidade: Int, tipo:String): MutableLiveData<List<InformacoesGatos>>
+    fun obterInformacoesDeGatos(
+        quantidade: Int,
+        tipo: String
+    ): MutableLiveData<List<InformacoesGatos>>
 }
