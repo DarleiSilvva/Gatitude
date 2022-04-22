@@ -1,6 +1,5 @@
 package vm.caatsoft.data.mock
 
-import com.google.gson.annotations.SerializedName
 import vm.caatsoft.data.remote.response.InformacoesGatosResponse
 
 /**

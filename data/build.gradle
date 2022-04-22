@@ -52,7 +52,7 @@ dependencies {
     testImplementation  rootProject.tests.junit
     androidTestImplementation  rootProject.tests.extJunit
     androidTestImplementation  rootProject.tests.espresso
-    testImplementation  rootProject.tests.mockito
+    androidTestImplementation   rootProject.tests.mockito
     testImplementation  rootProject.tests.mockitoKotlin
 
 }

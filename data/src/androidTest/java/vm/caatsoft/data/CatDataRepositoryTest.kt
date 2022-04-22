@@ -1,20 +1,13 @@
 package vm.caatsoft.data
 
 import androidx.lifecycle.MutableLiveData
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.nhaarman.mockitokotlin2.mock
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import okhttp3.internal.tls.OkHostnameVerifier.verify
-import org.junit.Assert
-import com.nhaarman.mockitokotlin2.*
-
 import org.junit.Test
 import org.junit.runner.RunWith
-import com.nhaarman.mockitokotlin2.*
-
-import org.junit.Assert.*
 import vm.caatsoft.data.mapper.toModel
 import vm.caatsoft.data.remote.api.CatApi
 import vm.caatsoft.domain.model.InformacoesGatos
