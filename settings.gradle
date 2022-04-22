@@ -7,4 +7,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Gatitude"
-include ':app'
+include ':presenter'
+include ':data'
+include ':domain'
