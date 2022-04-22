@@ -39,7 +39,7 @@ class InformacoesGatosAdapter(
         holder.modelBinding.catTextView.text = if (informacaoGato.url.isNotEmpty()) {
             informacaoGato.url.replaceFirstChar { it.uppercase() }
         } else {
-            SEM_CATEGORIA
+            SEM_URL
         }
         naIteracaoComListaDeInformacoesDeGatos.carregarImagem(
             informacaoGato.url,
@@ -57,7 +57,7 @@ class InformacoesGatosAdapter(
     }
 
     companion object {
-        private const val SEM_CATEGORIA = "Não tem categoria"
+        private const val SEM_URL = "Não tem url"
     }
 
 }
