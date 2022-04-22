@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+def apikeyPropertiesFile = rootProject.file("gatitude.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
+android {
+    compileSdk rootProject.versions.compileSdk
+
+    defaultConfig {
+        applicationId "vm.caatsoft.gatitude"
+        minSdk rootProject.versions.minSdk
+        targetSdk rootProject.versions.targetSdk
+        versionCode rootProject.versions.versionCode
+        versionName rootProject.versions.versionName
+
+        buildConfigField("String", "CAT_API_KEY", apikeyProperties['CAT_API_KEY'])
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = rootProject.versions.java
+        targetCompatibility = rootProject.versions.java
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.versions.jvmTarget
+    }
+
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation project(path: ':data')
+    implementation project(path: ':domain')
+
+
+    implementation  rootProject.android.androidx.core
+    implementation  rootProject.android.androidx.appcompat
+    implementation  rootProject.android.androidx.material
+    implementation  rootProject.android.androidx.constraintLayout
+    implementation  rootProject.android.androidx.recyclerview
+    implementation  rootProject.android.androidx.cardview
+    implementation  rootProject.android.viewModel
+
+    //Retrofit
+    implementation  rootProject.retrofit.geral
+    implementation  rootProject.retrofit.converterGson
+    implementation  rootProject.retrofit.rxJavaAdapter
+    implementation  rootProject.retrofit.okhttp3
+
+    //koin injeção de depsendência
+    implementation  rootProject.koin.android
+    implementation  rootProject.koin.scope
+    implementation  rootProject.koin.viewmodel
+
+    //RX
+    implementation  rootProject.rx.android
+    implementation  rootProject.rx.rxAdapter
+
+    //Download das imagens
+    implementation  rootProject.glide.principal
+    androidTestAnnotationProcessor  rootProject.glide.compiler
+    implementation  rootProject.glide.integration
+
+    //Test
+    testImplementation  rootProject.tests.junit
+    androidTestImplementation  rootProject.tests.extJunit
+    androidTestImplementation  rootProject.tests.espresso
+}
