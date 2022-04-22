@@ -33,7 +33,6 @@ android {
 
 dependencies {
     implementation project(path: ':domain')
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation  rootProject.android.androidx.core
     implementation  rootProject.android.androidx.appcompat

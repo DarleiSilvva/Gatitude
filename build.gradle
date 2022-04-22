@@ -89,7 +89,7 @@ buildscript {
         tests  =         [
                 junit: "junit:junit:${versions.tests.junit}",
                 extJunit: "androidx.test.ext:junit:${versions.tests.extJunit}",
-                espresso: "androidx.test.espresso:espresso-core:${versions.tests.junit}",
+                espresso: "androidx.test.espresso:espresso-core:${versions.tests.espresso}",
                 mockito       : "org.mockito:mockito-core:${versions.tests.mockito}",
                 mockitoAndroid: "org.mockito:mockito-android:${versions.tests.mockito}",
                 mockitoKotlin : "com.nhaarman.mockitokotlin2:mockito-kotlin:${versions.tests.mockitoKotlin}",
