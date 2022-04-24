@@ -59,7 +59,7 @@ dependencies {
     implementation  rootProject.retrofit.rxJavaAdapter
     implementation  rootProject.retrofit.okhttp3
 
-    //koin injeção de depsendência
+    //koin injeção de dependência
     implementation  rootProject.koin.android
     implementation  rootProject.koin.scope
     implementation  rootProject.koin.viewmodel
@@ -72,4 +72,15 @@ dependencies {
     implementation  rootProject.glide.principal
     androidTestAnnotationProcessor  rootProject.glide.compiler
     implementation  rootProject.glide.integration
+
+    //Test
+    testImplementation  rootProject.tests.junit
+    androidTestImplementation  rootProject.tests.extJunit
+    androidTestImplementation  rootProject.tests.espresso
+    androidTestImplementation   rootProject.tests.mockito
+    testImplementation  rootProject.tests.mockitoKotlin
+
+    testImplementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    testImplementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+
 }
