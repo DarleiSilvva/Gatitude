@@ -54,5 +54,4 @@ dependencies {
     androidTestImplementation  rootProject.tests.espresso
     androidTestImplementation   rootProject.tests.mockito
     testImplementation  rootProject.tests.mockitoKotlin
-
 }

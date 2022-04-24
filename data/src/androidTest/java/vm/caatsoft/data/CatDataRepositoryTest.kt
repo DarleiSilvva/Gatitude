@@ -1,47 +1,101 @@
 package vm.caatsoft.data
 
-import androidx.lifecycle.MutableLiveData
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.nhaarman.mockitokotlin2.mock
+import io.reactivex.Observable
+import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import vm.caatsoft.data.mapper.toModel
+import org.mockito.Mockito.mock
+import org.mockito.MockitoAnnotations
+import retrofit2.adapter.rxjava2.HttpException
 import vm.caatsoft.data.remote.api.CatApi
-import vm.caatsoft.domain.model.InformacoesGatos
+import vm.caatsoft.data.remote.response.InformacoesGatosResponse
 
 @RunWith(AndroidJUnit4::class)
 class CatDataRepositoryTest {
 
-    private val catApi = mock<CatApi>()
-    val listInformacoesGatos: MutableLiveData<List<InformacoesGatos>> = MutableLiveData()
+    lateinit var catDataRepository: CatDataRepository
+    lateinit var catApi: CatApi
+    lateinit var listaInformacoesGatosResponse: List<InformacoesGatosResponse>
+    var code = 0
+
+    @Before
+    @Throws
+    fun setup() {
+        RxAndroidPlugins.setInitMainThreadSchedulerHandler({ Schedulers.trampoline() })
+        MockitoAnnotations.initMocks(this)
+
+        catApi = mock(CatApi::class.java)
+
+        catDataRepository = CatDataRepository(catApi)
+
+    }
 
     @Test
-    fun listaCarregada ()  {
-        val resultados: MutableList<InformacoesGatos> = ArrayList()
+    fun verificarCodigoErro()  {
+        val call: Observable<List<InformacoesGatosResponse>> = catApi.obterImagensRandomicas(10, "gif")
 
-        val observable = catApi.obterImagensRandomicas(5, "gif")
+        call.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object : DisposableObserver<List<InformacoesGatosResponse>>()
+            {
+                public override fun onStart() {
+                    TODO("Not yet implemented")
+                }
 
-        CompositeDisposable().add(
-            observable
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ lista ->
-                    lista?.let {
-                        lista.forEach {
-                            resultados.add(
-                                it.toModel()
-                            )
-                        }
+                override fun onError(t: Throwable) {
+                    t.printStackTrace()
+                    if (t is HttpException) {
+                        val response: HttpException = t as HttpException
+                        code = response.code()
                     }
-                }, {
-                    it.printStackTrace()
-                })
-        )
-        listInformacoesGatos.apply {
-            value?.let { assert(it.isNotEmpty()) }
-        }
+                }
+
+                override fun onComplete() {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onNext(t: List<InformacoesGatosResponse>) {
+                    TODO("Not yet implemented")
+                }
+            })
+
+        assert(code == 0)
+    }
+
+    @Test
+    fun verificarLista()  {
+        val call: Observable<List<InformacoesGatosResponse>> = catApi.obterImagensRandomicas(10, "gif")
+
+        call.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object : DisposableObserver<List<InformacoesGatosResponse>>()
+            {
+                public override fun onStart() {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onError(t: Throwable) {
+                    t.printStackTrace()
+                    if (t is HttpException) {
+                        val response: HttpException = t as HttpException
+                        code = response.code()
+                    }
+                }
+
+                override fun onComplete() {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onNext(t: List<InformacoesGatosResponse>) {
+                    TODO("Not yet implemented")
+                }
+            })
+
+        assert(listaInformacoesGatosResponse.isEmpty())
     }
 }
